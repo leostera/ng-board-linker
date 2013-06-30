@@ -1,0 +1,18 @@
+var widgets = angular.module('-.widgets');
+
+widgets.directive('dashCounter',
+  ['$io'
+  , function ($io){
+    var dirObj = {
+      // Can be both an attribute and an element
+      // I'd rather it'd be an element thou
+      restrict: 'EA',
+      
+      link: function postLink(scope, iElement, iAttrs) {
+        $io.$on(iAttrs.listenTo, function (data) {
+          scope.count = data;
+        });
+      }
+    };
+    return dirObj;
+  }]);
