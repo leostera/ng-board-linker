@@ -1,6 +1,6 @@
 var widgets = angular.module('-.widgets');
 
-widgets.directive('dashCounter',
+widgets.directive('dashLinker',
   ['$io'
   , function ($io){
     var dirObj = {
@@ -10,7 +10,7 @@ widgets.directive('dashCounter',
       
       link: function postLink(scope, iElement, iAttrs) {
         $io.$on(iAttrs.listenTo, function (data) {
-          scope.count = data;
+          scope[ iAttrs.linkTo || 'data' ] = data;
         });
       }
     };
