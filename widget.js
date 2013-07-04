@@ -1,6 +1,6 @@
 var widgets = angular.module('-.widgets');
 
-widgets.directive('dashLinker',
+widgets.directive('wLinker',
   ['$io'
   , function ($io){
     var dirObj = {
